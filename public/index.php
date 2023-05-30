@@ -37,7 +37,9 @@ $user = find_user_by_username(current_user());
             </h5>
             <a class="btn btn-info" href="pages/profile.php">Profile</a>
             <a class="btn btn-info" href="pages/users.php">Users</a>
-            <a class="btn btn-info" href="pages/search.php">Search</a>
+            <a class="btn btn-info" href="pages/search.php">Search</a><br><br>
+            <a class="btn btn-info" href="pages/create_ticket.php">Create a Ticket</a>
+            <a class="btn btn-info" href="pages/tickets.php">Tickets</a>
             <br><br>
             <a class="btn btn-outline-primary" href="logout.php">Logout</a>
           </div>
