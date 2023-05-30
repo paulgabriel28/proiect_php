@@ -53,6 +53,27 @@ function is_follow_button_request()
     return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['follow_button']);
 }
 
+function create_ticket_request() 
+{
+    return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create_ticket_button']);
+}
+
+function ticket_message_request() 
+{
+    return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ticket_message_button']);
+}
+
+function ticket_close_request() 
+{
+    return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ticket_close_button']);
+}
+
+function ticket_reopen_request() 
+{
+    return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ticket_reopen_button']);
+}
+
+
 function find_chat() 
 {
     return $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['find_chat_user']);
