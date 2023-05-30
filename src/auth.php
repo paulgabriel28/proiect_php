@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Register a user
  *
@@ -86,7 +87,7 @@ function login(string $username, string $password): bool
             FLASH_ERROR
         );
     }
-    
+
     if ($user && is_user_active($user) && password_verify($password, $user['password'])) {
         session_regenerate_id();
         $_SESSION['user_id'] = $user['id'];
@@ -198,7 +199,6 @@ function send_activation_email(string $email, string $activation_code): void
             Hi,\nPlease click the following link to activate your account:\n$activation_link\n";
     $header = "From: no-reply@paulgabriel.ro";
     mail($email, $subject, nl2br($message), $header);
-
 }
 
 function generate_activation_code(): string
@@ -219,7 +219,6 @@ function save_profile(string $name, string $email, int $phone, string $adress, s
     WHERE id='$user_id'";
     $statement = db()->prepare($sql);
     return $statement->execute();
-
 }
 
 function save_profile_skills(int $web_design, int $java_script, int $cs, int $cpp, int $python, int $user_id): bool
@@ -263,7 +262,6 @@ function admin_save_profile(string $username, string $name, string $email, int $
     WHERE id='$user_id'";
     $statement = db()->prepare($sql);
     return $statement->execute();
-
 }
 
 function admin_save_roles($is_admin, $role, $user_id)
@@ -379,6 +377,71 @@ function send_message_global_chat(int $user_id, string $username, string $messag
     $statement->bindValue(':user_id', $user_id);
     $statement->bindValue(':username', $username);
     $statement->bindValue(':message', $message);
+
+    return $statement->execute();
+}
+
+function create_ticket(int $user_id, string $title, int $priority, string $text)
+{
+    $sql = 'INSERT INTO tickets(user_id, title, priority, text)
+    VALUES(:user_id, :title, :priority, :text)';
+
+    $statment = db()->prepare($sql);
+
+    $statment->bindValue(':user_id', $user_id);
+    $statment->bindValue(':title', $title);
+    $statment->bindValue(':priority', $priority);
+    $statment->bindValue(':text', $text);
+
+    return $statment->execute();
+}
+
+function find_user_by_id_ticket(int $id)
+{
+    $sql = 'SELECT user_id, title, text, priority, date, status, answer, date_answer
+            FROM tickets
+            WHERE ID=:id';
+
+    $statement = db()->prepare($sql);
+    $statement->bindValue(':id', $id);
+    $statement->execute();
+
+    return $statement->fetch(PDO::FETCH_ASSOC);
+}
+
+function send_ticket_message(int $ticket_id, int $sender_id, string $text)
+{
+    $sql = 'INSERT INTO tickets_comments(ticket_id, sender_id, text)
+    VALUES(:ticket_id, :sender_id, :text)';
+
+    $statment = db()->prepare($sql);
+
+    $statment->bindValue(':ticket_id', $ticket_id);
+    $statment->bindValue(':sender_id', $sender_id);
+    $statment->bindValue(':text', $text);
+
+    return $statment->execute();
+}
+
+function close_ticket(int $ticket_id, int $answer_id)
+{
+    $sql = 'UPDATE tickets SET status = 0, answer = :answer, date_answer = CURRENT_TIMESTAMP WHERE ID = :ticket_id';
+
+    $statement = db()->prepare($sql);
+
+    $statement->bindValue(':answer', $answer_id);
+    $statement->bindValue(':ticket_id', $ticket_id);
+
+    return $statement->execute();
+}
+
+function reopen_ticket(int $ticket_id)
+{
+    $sql = 'UPDATE tickets SET status = 1, answer = NULL, date_answer = NULL WHERE ID = :ticket_id';
+
+    $statement = db()->prepare($sql);
+
+    $statement->bindValue(':ticket_id', $ticket_id);
 
     return $statement->execute();
 }
