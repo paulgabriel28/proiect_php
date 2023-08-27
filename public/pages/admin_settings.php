@@ -32,6 +32,7 @@ if (isset($_GET['user'])) {
 <?php view('header', ['title' => 'Admin Settings - ' . $user['username']]) ?>
 
 <body>
+    <link href="css/style.css" rel="stylesheet" />
     <div class="container">
         <div class="main-body">
 
@@ -39,16 +40,14 @@ if (isset($_GET['user'])) {
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../index.php" style="text-decoration:none">Home</a></li>
                     <li class="breadcrumb-item"><a href="users.php" style="text-decoration:none">Users</a></li>
-                    <li class="breadcrumb-item"><a href="profile.php?user=<?= $user['username'] ?>"
-                            style="text-decoration:none">User Profile</a></li>
+                    <li class="breadcrumb-item"><a href="profile.php?user=<?= $user['username'] ?>" style="text-decoration:none">User Profile</a></li>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page" style="text-decoration:none">Admin
                         Settings -
                         <?= $user['username'] ?>
                     </li>
                     <a href="profile.php" style="margin-left:51%; text-decoration:none; color:black">
-                        <li><img src="src/avatars/avatar<?= $admin['avatar_id'] ?>.png" class="rounded-circle"
-                                alt="avatar" style="width:20px"> <b>
+                        <li><img src="src/avatars/avatar<?= $admin['avatar_id'] ?>.png" class="rounded-circle" alt="avatar" style="width:20px"> <b>
                                 <?= $admin['username'] ?>
                             </b></li>
                     </a>
@@ -66,7 +65,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" class="form-control" name="username" id="username" value="<?= $user['username'];
-                                $inputs['username'] ?? '' ?> ">
+                                                                                                                $inputs['username'] ?? '' ?> ">
                             </div>
                         </div>
 
@@ -77,7 +76,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" class="form-control" name="name" id="name" value="<?= $user['name'];
-                                $inputs['name'] ?? '' ?> ">
+                                                                                                        $inputs['name'] ?? '' ?> ">
                             </div>
                         </div>
 
@@ -88,7 +87,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" name="email" id="email" class="form-control" value="<?= $user['email'];
-                                $inputs['email'] ?? '' ?>">
+                                                                                                        $inputs['email'] ?? '' ?>">
                             </div>
                         </div>
 
@@ -99,7 +98,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" name="phone" id="phone" class="form-control" value="<?= $user['phone'];
-                                $inputs['phone'] ?? '' ?>">
+                                                                                                        $inputs['phone'] ?? '' ?>">
                             </div>
                         </div>
 
@@ -110,7 +109,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" name="adress" id="adress" class="form-control" value="<?= $user['adress'];
-                                $inputs['adress'] ?? '' ?>">
+                                                                                                            $inputs['adress'] ?? '' ?>">
                             </div>
                         </div>
 
@@ -121,7 +120,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" name="country" id="country" class="form-control" value="<?= $user['country'];
-                                $inputs['country'] ?? '' ?>">
+                                                                                                            $inputs['country'] ?? '' ?>">
                             </div>
                         </div>
 
@@ -131,7 +130,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="text" name="about_me" id="about_me" class="form-control" value="<?= $user['about_me'];
-                                $inputs['about_me'] ?? '' ?>">
+                                                                                                                $inputs['about_me'] ?? '' ?>">
                             </div>
                         </div>
 
@@ -142,18 +141,15 @@ if (isset($_GET['user'])) {
                                 </a>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="number" min="0" max="8" name="avatar_id" id="avatar_id"
-                                    class="form-control" value="<?= $user['avatar_id'];
-                                    $inputs['avatar_id'] ?? '' ?>">
+                                <input type="number" min="0" max="8" name="avatar_id" id="avatar_id" class="form-control" value="<?= $user['avatar_id'];
+                                                                                                                                    $inputs['avatar_id'] ?? '' ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                                 <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                                <button class="btn btn-info" name="admin_save_profile_button" type="submit"
-                                    id="button_id_0"><i class="fa fa-floppy-o" style="position:relative; left:-4px;"
-                                        aria-hidden="true"></i> Save
+                                <button class="btn btn-info" name="admin_save_profile_button" type="submit" id="button_id_0"><i class="fa fa-floppy-o" style="position:relative; left:-4px;" aria-hidden="true"></i> Save
                                     profile</button>
                             </div>
                         </div>
@@ -203,9 +199,7 @@ if (isset($_GET['user'])) {
                             <div class="col-sm-12">
                                 <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                                 <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                                <button class="btn btn-info" name="admin_save_roles_button" type="submit"
-                                    id="button_id_0"><i class="fa fa-floppy-o" aria-hidden="true"
-                                        style="position:relative; left:-4px;"></i> Save
+                                <button class="btn btn-info" name="admin_save_roles_button" type="submit" id="button_id_0"><i class="fa fa-floppy-o" aria-hidden="true" style="position:relative; left:-4px;"></i> Save
                                     roles</button>
                             </div>
                         </div>
@@ -222,56 +216,42 @@ if (isset($_GET['user'])) {
 
                         <div class="row mb-3">
                             <div class="col-sm-3">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-globe mr-2 icon-inline">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <line x1="2" y1="12" x2="22" y2="12"></line>
-                                        <path
-                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
                                         </path>
                                     </svg>Website</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" name="website" id="website" class="form-control"
-                                    value="<?= $user['website'] ?>">
+                                <input type="text" name="website" id="website" class="form-control" value="<?= $user['website'] ?>">
                             </div>
                         </div>
 
 
                         <div class="row mb-3">
                             <div class="col-sm-3">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-github mr-2 icon-inline">
-                                        <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                         </path>
                                     </svg>Github</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" name="github" id="github" class="form-control"
-                                    value="<?= $user['github'] ?>">
+                                <input type="text" name="github" id="github" class="form-control" value="<?= $user['github'] ?>">
                             </div>
                         </div>
 
 
                         <div class="row mb-3">
                             <div class="col-sm-3">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-instagram mr-2 icon-inline text-danger">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger">
                                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                     </svg>Instagram</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" name="instagram" id="instagram" class="form-control"
-                                    value="<?= $user['instagram'] ?>">
+                                <input type="text" name="instagram" id="instagram" class="form-control" value="<?= $user['instagram'] ?>">
                             </div>
                         </div>
 
@@ -279,17 +259,13 @@ if (isset($_GET['user'])) {
 
                         <div class="row mb-3">
                             <div class="col-sm-3">
-                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="feather feather-facebook mr-2 icon-inline text-primary">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary">
                                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
                                         </path>
                                     </svg>Facebook</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" name="facebook" id="facebook" class="form-control"
-                                    value="<?= $user['facebook'] ?>">
+                                <input type="text" name="facebook" id="facebook" class="form-control" value="<?= $user['facebook'] ?>">
                             </div>
                         </div>
 
@@ -298,9 +274,7 @@ if (isset($_GET['user'])) {
                             <div class="col-sm-12">
                                 <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                                 <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                                <button class="btn btn-info" name="admin_save_accounts_button" type="submit"
-                                    id="button_id_0"><i class="fa fa-floppy-o" aria-hidden="true"
-                                        style="position:relative; left:-4px;"></i> Save
+                                <button class="btn btn-info" name="admin_save_accounts_button" type="submit" id="button_id_0"><i class="fa fa-floppy-o" aria-hidden="true" style="position:relative; left:-4px;"></i> Save
                                     accounts</button>
                             </div>
                         </div>
@@ -322,9 +296,8 @@ if (isset($_GET['user'])) {
                                     </b></p>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="number" name="web_design" id="web_design" min="0" max="100"
-                                    class="form-control" value="<?= $user['web_design'];
-                                    $inputs['web_design'] ?? '' ?>">
+                                <input type="number" name="web_design" id="web_design" min="0" max="100" class="form-control" value="<?= $user['web_design'];
+                                                                                                                                        $inputs['web_design'] ?? '' ?>">
                                 <small>
                                     <?= $errors['web_design'] ?? '' ?>
                                 </small>
@@ -339,9 +312,8 @@ if (isset($_GET['user'])) {
                                     </b></p>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="number" name="java_script" id="java_script" min="0" max="100"
-                                    class="form-control" value="<?= $user['java_script'];
-                                    $inputs['java_script'] ?? '' ?>">
+                                <input type="number" name="java_script" id="java_script" min="0" max="100" class="form-control" value="<?= $user['java_script'];
+                                                                                                                                        $inputs['java_script'] ?? '' ?>">
                                 <small>
                                     <?= $errors['java_script'] ?? '' ?>
                                 </small>
@@ -357,7 +329,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="number" name="cs" id="cs" min="0" max="100" class="form-control" value="<?= $user['cs'];
-                                $inputs['cs'] ?? '' ?>">
+                                                                                                                        $inputs['cs'] ?? '' ?>">
                                 <small>
                                     <?= $errors['cs'] ?? '' ?>
                                 </small>
@@ -373,7 +345,7 @@ if (isset($_GET['user'])) {
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <input type="number" name="cpp" id="cpp" min="0" max="100" class="form-control" value="<?= $user['cpp'];
-                                $inputs['cpp'] ?? '' ?>">
+                                                                                                                        $inputs['cpp'] ?? '' ?>">
                                 <small>
                                     <?= $errors['cpp'] ?? '' ?>
                                 </small>
@@ -388,9 +360,8 @@ if (isset($_GET['user'])) {
                                     </b></p>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="number" name="python" id="python" min="0" max="100" class="form-control"
-                                    value="<?= $user['python'];
-                                    $inputs['python'] ?? '' ?>">
+                                <input type="number" name="python" id="python" min="0" max="100" class="form-control" value="<?= $user['python'];
+                                                                                                                                $inputs['python'] ?? '' ?>">
                                 <small>
                                     <?= $errors['python'] ?? '' ?>
                                 </small>
@@ -402,9 +373,7 @@ if (isset($_GET['user'])) {
                             <div class="col-sm-12">
                                 <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                                 <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                                <button class="btn btn-info" type="submit" name="admin_save_skills_button"
-                                    value="Refresh Page" onClick="refresh" id="button_id_1"><i class="fa fa-floppy-o"
-                                        aria-hidden="true" style="position:relative; left:-4px;"></i> Save
+                                <button class="btn btn-info" type="submit" name="admin_save_skills_button" value="Refresh Page" onClick="refresh" id="button_id_1"><i class="fa fa-floppy-o" aria-hidden="true" style="position:relative; left:-4px;"></i> Save
                                     skills</button>
                             </div>
                         </div>
@@ -429,7 +398,7 @@ if (isset($_GET['user'])) {
                     echo '<a href="profile.php?user=' . $follower['following_name'] . '" style="text-decoration:none"><img src="src/avatars/avatar' . $user_follower['avatar_id'] . '.png" class="rounded-circle" style="width:15px"> ' . $follower['following_name'] . '</a>';
                     echo '&emsp;';
                 }
-                ?>
+            ?>
                 <hr>
                 <form action="admin_settings.php" method="POST">
                     <div class="row mb-3" id="remove_followers">
@@ -439,8 +408,7 @@ if (isset($_GET['user'])) {
                         <div class="col-sm-9 text-secondary">
                             <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                             <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                            <input type="text" name="remove_followers" id="remove_followers" class="form-control"
-                                placeholder="Follower Username" value="<?= $inputs['remove_followers'] ?? '' ?>">
+                            <input type="text" name="remove_followers" id="remove_followers" autocomplete="off" class="form-control" placeholder="Follower Username" value="<?= $inputs['remove_followers'] ?? '' ?>">
                             <small>
                                 <?= $errors['remove_followers'] ?? '' ?>
                             </small>
@@ -448,14 +416,12 @@ if (isset($_GET['user'])) {
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <button class="btn btn-info" name="admin_remove_followers_button" type="submit"
-                                id="button_id_0"><i class="fa fa-search-minus" aria-hidden="true"
-                                    style="position:relative; left:-4px;"></i>
+                            <button class="btn btn-info" name="admin_remove_followers_button" autocomplete="off" type="submit" id="button_id_0"><i class="fa fa-search-minus" aria-hidden="true" style="position:relative; left:-4px;"></i>
                                 Remove</button>
                         </div>
                     </div>
                 </form>
-                <?php
+            <?php
                 echo '</h6>';
                 echo '</div> ';
                 echo '</div>';
@@ -483,7 +449,7 @@ if (isset($_GET['user'])) {
                     echo '&emsp;';
                 }
                 echo '</h6>';
-                ?>
+            ?>
                 <hr>
                 <form action="admin_settings.php" method="POST">
                     <div class="row mb-3" id="remove_following">
@@ -493,8 +459,7 @@ if (isset($_GET['user'])) {
                         <div class="col-sm-9 text-secondary">
                             <input type="hidden" name="user_id" value="<?= $user['id'] ?>" />
                             <input type="hidden" name="user_username" value="<?= $user['username'] ?>" />
-                            <input type="text" name="remove_following" id="remove_following" class="form-control"
-                                placeholder="Follower Username" value="<?= $inputs['remove_following'] ?? '' ?>">
+                            <input type="text" name="remove_following" id="remove_following" class="form-control" placeholder="Follower Username" value="<?= $inputs['remove_following'] ?? '' ?>">
                             <small>
                                 <?= $errors['remove_following'] ?? '' ?>
                             </small>
@@ -502,14 +467,12 @@ if (isset($_GET['user'])) {
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <button class="btn btn-info" name="admin_remove_following_button" type="submit"
-                                id="button_id_0"><i class="fa fa-search-minus" aria-hidden="true"
-                                    style="position:relative; left:-4px;"></i>
+                            <button class="btn btn-info" name="admin_remove_following_button" type="submit" id="button_id_0"><i class="fa fa-search-minus" aria-hidden="true" style="position:relative; left:-4px;"></i>
                                 Remove</button>
                         </div>
                     </div>
                 </form>
-                <?php
+            <?php
                 echo '</div> ';
                 echo '</div>';
             } else {
@@ -523,34 +486,226 @@ if (isset($_GET['user'])) {
             }
             ?>
 
+
             <div class="card" id="logs">
                 <div class="card-body">
-                    <h5 class="d-flex align-items-center mb-3">Logs</h5>
+                    <h5 class="d-flex align-items-center mb-3">Logs - de facut</h5>
                     <div class="row mb-3">
-                        <div class="col-sm-3">
-                            <p class="mb-0"> Last Update <b><a href="#last_update"
-                                        style="text-decoration:none; color:black">(view)</a></b></p>
-                            <p class="mb-0"> Chat Logs <b><a href="#chat_logs"
-                                        style="text-decoration:none; color:black">(view)</a></b></p>
-                            <p class="mb-0"> Activation Logs <b><a href="#activation_logs"
-                                        style="text-decoration:none; color:black">(view)</a></b></p>
-                            <p class="mb-0"> Profile Logs <b><a href="#profile_logs"
-                                        style="text-decoration:none; color:black">(view)</a></b></p>
+                        <div class="col-sm-12">
+                            <div class="link-container">
+                                <b><a href="#last_update" onclick="showContent('last_update_div', var_last_update)" style="text-decoration:none; color:black">Last Update</a></b>
+                            </div>
+                            <div class="link-container">
+                                <b><a href="#chat_logs" onclick="showContent('last_update_div', var_messages_logs)" style="text-decoration:none; color:black">Messages Logs</a></b>
+                            </div>
+                            <div class="link-container">
+                                <b><a href="#chat_logs" onclick="showContent('last_update_div', var_global_chat_logs)" style="text-decoration:none; color:black">Global Chat Logs</a></b>
+                            </div>
+                            <div class="link-container">
+                                <b><a href="#activation_logs" onclick="showContent('last_update_div', var_activation_logs)" style="text-decoration:none; color:black">Activation Logs</a></b>
+                            </div>
+                            <div class="link-container">
+                                <b><a href="#profile_logs" onclick="showContent('last_update_div', var_profile_logs)" style="text-decoration:none; color:black">Profile Logs</a></b>
+                            </div>
+                            <div class="link-container">
+                                <b><a href="#ticket_logs" onclick="showContent('last_update_div', var_ticket_logs)" style="text-decoration:none; color:black">Tickets Logs</a></b>
+                            </div>
                         </div>
-
                     </div>
-                    <?php
-                    $current_url = $_SERVER['REQUEST_URI'];
-
-                    // Verificați dacă URL-ul curent conține o ancoră "last_update"
-                    if (strpos($current_url, "#last_update") !== false) {
-                        // Afișați containerul aici
-                        echo "<div id='container'>...</div>";
-                    }
-                    ?>
+                    <div id="last_update_div">Select...</div>
                 </div>
             </div>
+            <script>
+                function showContent(divId, content) {
+                    var div = document.getElementById(divId);
+                    div.innerHTML = content;
+                }
+
+                var var_last_update = 'De facut sistem de updates!';
+
+                var var_messages_logs = `
+                <div class="card-body">
+                        <h4>Messages Logs:</h4>
+                        <div class="">
+                        <table class="table">
+                            <thead style="background-color:#4dcfe6">
+                            <tr>
+                                <th>#</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody style="background-color:#a6e7f2">
+                            <?php
+                            $user_id = $user['id'];
+                            $sql = "SELECT * FROM chats WHERE (to_id = $user_id) OR (from_id = $user_id) ORDER BY chat_id ASC";
+                            $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                            $result = mysqli_query($conn, $sql);
+                            $nr_gen = 1;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                if ($row['from_id'] == $user['id']) {
+                                    echo "<td style='background-color: #20c2df'>";
+                                } else {
+                                    echo "<td>";
+                                }
+                                echo $nr_gen . "</td>";
+                                $nr_gen++;
+
+
+                                $user_row = find_user_by_id($row['from_id']);
+                                if ($row['from_id'] == $user['id']) {
+                                    echo "<td style='background-color: #20c2df'>";
+                                } else {
+                                    echo "<td>";
+                                }
+                                echo "<img src='src/avatars/avatar" . $user_row['avatar_id'] . ".png' class='rounded-circle' alt='avatar' style='width:20px'> ";
+                                echo $user_row['username'];
+                                echo "</td>";
+
+                                
+                                $user_row_2 = find_user_by_id($row['to_id']);
+                                if ($row['from_id'] == $user['id']) {
+                                    echo "<td style='background-color: #20c2df'>";
+                                } else {
+                                    echo "<td>";
+                                }
+                                echo "<img src='src/avatars/avatar" . $user_row_2['avatar_id'] . ".png' class='rounded-circle' alt='avatar' style='width:20px'> ";
+                                echo $user_row_2['username'];
+                                echo "</td>";
+
+
+                                if ($row['from_id'] == $user['id']) {
+                                    echo "<td style='background-color: #20c2df'>";
+                                } else {
+                                    echo "<td>";
+                                }
+                                echo $row['message'] . "</td>";
+
+                                if ($row['from_id'] == $user['id']) {
+                                    echo "<td style='background-color: #20c2df'>";
+                                } else {
+                                    echo "<td>";
+                                }
+                                echo $row['created_at'] . "</td>";
+                                echo "<tr>";
+                            }
+
+                            mysqli_close($conn);
+                            ?>
+
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    
+                
+                `;
+
+                var var_global_chat_logs = `
+                    <div class="card-body">
+                        <h4>Global Chat Logs:</h4>
+                        <div class="">
+                        <table class="table">
+                            <thead style="background-color:#4dcfe6">
+                            <tr>
+                                <th>#</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody style="background-color:#a6e7f2">
+                            <?php
+                            $user_id = $user['id'];
+                            $sql = "SELECT * FROM globalchat WHERE (user_id = $user_id) ORDER BY chat_id ASC";
+                            $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                            $result = mysqli_query($conn, $sql);
+                            $nr_gen = 1;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<td>" . $nr_gen . "</td>";
+                                $nr_gen++;
+
+                                echo "<td>" . $row['message'] . "</td>";
+
+                                echo "<td> " . $row['created_at'] . "</td>";
+                                echo "<tr>";
+                            }
+
+                            mysqli_close($conn);
+                            ?>
+
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                `;
+
+                var var_activation_logs = 'De facut sistemul!';
+
+                var var_profile_logs = 'De facut sistemul';
+
+                var var_ticket_logs = `
+                    <div class="card-body">
+                        <h4>Tickets Logs:</h4>
+                        <div class="">
+                        <table class="table">
+                            <thead style="background-color:#4dcfe6">
+                            <tr>
+                                <th>#</th>
+                                <th>Proiroty</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>View</th>
+                            </tr>
+                            </thead>
+                            <tbody style="background-color:#a6e7f2">
+                            <?php
+                            $user_id = $user['id'];
+                            $query = "SELECT * FROM tickets where (user_id = $user_id) ORDER BY ID DESC";
+                            $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+                            $result = mysqli_query($conn, $query);
+                            $nr_gen = 1;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<td>" . $nr_gen . "</td>";
+                                $nr_gen++;
+
+                                echo "<td>";
+                                if ($row['priority'] == 1)
+                                    echo "Low";
+                                elseif ($row['priority'] == 2)
+                                    echo "High";
+                                elseif ($row['priority'] == 3)
+                                    echo "Very High";
+                                echo "</td>";
+
+                                echo "<td>";
+                                if ($row['status'] == 1)
+                                    echo " <span class='label' style='background-color:#2eb82e;'><i style='position:relative; left:-4px;' class='fa fa-plus-square' aria-hidden='true'></i>Open</span>";
+                                else
+                                    echo " <span class='label' style='background-color:#ff0000;'><i style='position:relative; left:-4px;' class='fa fa-minus-square' aria-hidden='true'></i>Closed</span>";
+                                echo "</td>";
+
+                                echo "<td>" . $row["date"] . "</td>";
+
+                                echo "<td>";
+                                echo "<a href='tickets.php?id=" . $row['ID'] . "'>View</a>";
+                                echo "</td>";
+
+                                echo "<tr>";
+                            }
+                            mysqli_close($conn);
+                            ?>
+
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                `;
+            </script>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>
