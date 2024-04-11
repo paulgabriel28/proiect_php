@@ -1,4 +1,4 @@
 # proiect_php
-Proiectul principal in PHP
+PHP Project - 2021
 
-Partea de frontend: https://freefrontend.com/bootstrap-chats/
+Frontend: https://freefrontend.com/bootstrap-chats/
